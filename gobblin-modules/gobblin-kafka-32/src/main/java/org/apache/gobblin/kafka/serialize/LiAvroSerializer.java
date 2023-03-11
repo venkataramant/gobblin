@@ -15,12 +15,25 @@
  * limitations under the License.
  */
 
-dependencies {
-  compile project(':gobblin-example')
-  compile project(':gobblin-modules:gobblin-azkaban')
-  compile project(':gobblin-modules:gobblin-crypto-provider')
-  compile project(':gobblin-modules:gobblin-kafka-08')
-  compile project(':gobblin-modules:gobblin-kafka-32')
-  compile project(':gobblin-modules:google-ingestion')
-  compile project(':gobblin-modules:gobblin-elasticsearch') 
+package org.apache.gobblin.kafka.serialize;
+
+import org.apache.avro.generic.GenericRecord;
+import org.apache.kafka.common.errors.SerializationException;
+import org.apache.kafka.common.serialization.Serializer;
+
+
+/**
+ * LinkedIn's implementation of Avro-schema based serialization for Kafka
+ * TODO: Implement this for IndexedRecord not just GenericRecord
+ */
+public class LiAvroSerializer extends LiAvroSerializerBase implements Serializer<GenericRecord> {
+
+  @Override
+  public byte[] serialize(String topic, GenericRecord data) {
+    try {
+      return super.serialize(topic, data);
+    } catch (org.apache.gobblin.kafka.serialize.SerializationException e) {
+      throw new SerializationException(e);
+    }
+  }
 }

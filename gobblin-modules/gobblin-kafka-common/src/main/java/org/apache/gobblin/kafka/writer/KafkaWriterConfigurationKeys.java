@@ -53,6 +53,9 @@ public class KafkaWriterConfigurationKeys {
   public static final String KAFKA_PRODUCER_CONFIG_PREFIX_NO_DOT = "writer.kafka.producerConfig";
   public static final String KAFKA_PRODUCER_CONFIG_PREFIX = KAFKA_PRODUCER_CONFIG_PREFIX_NO_DOT + ".";
 
+  /* for New Kafka Clients*/
+  public static final String  BOOTSTRAP_SERVERS_KEY ="bootstrap.servers";
+
   /** Kafka producer scoped configuration keys go here **/
   static final String KEY_SERIALIZER_CONFIG = "key.serializer";
   static final String DEFAULT_KEY_SERIALIZER = "org.apache.kafka.common.serialization.StringSerializer";

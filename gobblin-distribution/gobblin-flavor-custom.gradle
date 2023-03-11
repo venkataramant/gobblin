@@ -37,6 +37,7 @@ dependencies {
   // Kafka integration (source, writer, metrics) -- choose one
   // compile project(':gobblin-modules:gobblin-kafka-08')
   // compile project(':gobblin-modules:gobblin-kafka-09')
+  // compile project(':gobblin-modules:gobblin-kafka-32')
 
   // Gobblin Helix modules
   // compile project(':gobblin-modules:gobblin-helix')

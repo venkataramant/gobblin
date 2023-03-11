@@ -15,12 +15,21 @@
  * limitations under the License.
  */
 
-dependencies {
-  compile project(':gobblin-example')
-  compile project(':gobblin-modules:gobblin-azkaban')
-  compile project(':gobblin-modules:gobblin-crypto-provider')
-  compile project(':gobblin-modules:gobblin-kafka-08')
-  compile project(':gobblin-modules:gobblin-kafka-32')
-  compile project(':gobblin-modules:google-ingestion')
-  compile project(':gobblin-modules:gobblin-elasticsearch') 
+package org.apache.gobblin.kafka.writer;
+
+import java.util.Properties;
+
+import org.apache.gobblin.configuration.ConfigurationException;
+import org.apache.gobblin.writer.AsyncDataWriter;
+
+
+/**
+ * Builder that hands back a {@link Kafka32DataWriter}
+ */
+public class KafkaDataWriterBuilder<S, D> extends AbstractKafkaDataWriterBuilder<S, D> {
+  @Override
+  protected AsyncDataWriter<D> getAsyncDataWriter(Properties props)
+      throws ConfigurationException {
+    return new Kafka32DataWriter<>(props);
+  }
 }

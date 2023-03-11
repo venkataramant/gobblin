@@ -56,6 +56,7 @@ dependencies {
   compile project(':gobblin-iceberg')
   compile project(':gobblin-modules:gobblin-http')
   compile project(':gobblin-modules:gobblin-kafka-08')
+  compile project(':gobblin-modules:gobblin-kafka-32')
   //gobblin-kafka-09 is blacklisted for jacocoBuilds. check settings.xml
   if (System.getProperty('jacocoBuild') == null) {
     compile project(':gobblin-modules:gobblin-kafka-09')
